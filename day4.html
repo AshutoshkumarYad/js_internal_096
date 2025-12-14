@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM & Events Day-4</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .box {
+      border: 2px solid black;
+      padding: 20px;
+      margin: 10px 0;
+      background: lightgray;
+    }
+    .dark {
+      background: #121212;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Task 1 -->
+<h3>Task 1: Change Text</h3>
+<p id="text">Hello</p>
+<button onclick="changeText()">Click</button>
+
+<hr>
+
+<!-- Task 2 -->
+<h3>Task 2: Background Color</h3>
+<button onclick="changeBg('red')">Red</button>
+<button onclick="changeBg('blue')">Blue</button>
+<button onclick="changeBg('green')">Green</button>
+
+<hr>
+
+<!-- Task 3 -->
+<h3>Task 3: Image Switcher</h3>
+<img id="img" src="https://wallup.net/wp-content/uploads/2016/03/10/318375-nature-landscape-lake-mountain-forest-wildflowers-spring-pine_trees-path-Switzerland-HDR.jpg" width="150">
+<br>
+<button onclick="prevImg()">Previous</button>
+<button onclick="nextImg()">Next</button>
+
+<hr>
+
+<!-- Task 4 -->
+<h3>Task 4: Show / Hide</h3>
+<p id="para">This paragraph can be hidden</p>
+<button onclick="togglePara()">Toggle</button>
+
+<hr>
+
+<!-- Task 5 -->
+<h3>Task 5: Counter</h3>
+<button onclick="decrease()">-</button>
+<span id="count">0</span>
+<button onclick="increase()">+</button>
+
+<hr>
+
+<!-- Task 6 -->
+<h3>Task 6: Add Box</h3>
+<button onclick="addBox()">Add Box</button>
+
+<hr>
+
+<!-- Task 7 -->
+<h3>Task 7: Form Input Reader</h3>
+<input id="username" placeholder="Enter name">
+<button onclick="printName()">Submit</button>
+<p id="output"></p>
+
+<hr>
+
+<!-- Task 8 -->
+<h3>Task 8: Todo List</h3>
+<input id="task">
+<button onclick="addTask()">Add Task</button>
+<ul id="list"></ul>
+
+<hr>
+
+<!-- Task 9 -->
+<h3>Task 9: Attribute Change</h3>
+<img id="resizeImg" src="https://wallpapercave.com/wp/Ex9MlTC.jpg">
+<br>
+<button onclick="small()">Small</button>
+<button onclick="large()">Large</button>
+
+<hr>
+
+<!-- Task 10 -->
+<h3>Task 10: Theme Switcher</h3>
+<button onclick="toggleTheme()">Toggle Theme</button>
+
+<hr>
+
+<!-- Task 11 -->
+<h3>Task 11: Live Clock</h3>
+<p id="clock"></p>
+
+<hr>
+
+<!-- Task 12 -->
+<h3>Task 12: Random Quote</h3>
+<p id="quote"></p>
+<button onclick="newQuote()">New Quote</button>
+
+<script>
+/* Task 1 */
+function changeText() {
+  document.getElementById("text").innerText = "Welcome to JavaScript!";
+}
+
+/* Task 2 */
+function changeBg(color) {
+  document.body.style.backgroundColor = color;
+}
+
+/* Task 3 */
+let images = [
+  "https://wallpapers.com/images/hd/nature-landscape-pictures-hg4ndx87jp1rsvth.jpg",
+  "https://cdn.pixabay.com/photo/2022/11/06/10/14/ai-generated-7573687_1280.jpg"
+];
+let index = 0;
+
+function nextImg() {
+  index = (index + 1) % images.length;
+  document.getElementById("img").src = images[index];
+}
+
+function prevImg() {
+  index = (index - 1 + images.length) % images.length;
+  document.getElementById("img").src = images[index];
+}
+
+/* Task 4 */
+let visible = true;
+function togglePara() {
+  let p = document.getElementById("para");
+  visible = !visible;
+  p.style.display = visible ? "block" : "none";
+}
+
+/* Task 5 */
+let count = 0;
+function increase() {
+  count++;
+  document.getElementById("count").innerText = count;
+}
+function decrease() {
+  if (count > 0) count--;
+  document.getElementById("count").innerText = count;
+}
+
+/* Task 6 */
+function addBox() {
+  let div = document.createElement("div");
+  div.className = "box";
+  div.innerText = "I am a new box";
+  document.body.appendChild(div);
+}
+
+/* Task 7 */
+function printName() {
+  let name = document.getElementById("username").value;
+  document.getElementById("output").innerText = "Hello " + name;
+}
+
+/* Task 8 */
+function addTask() {
+  let task = document.getElementById("task").value;
+  let li = document.createElement("li");
+  li.innerText = task;
+  document.getElementById("list").appendChild(li);
+}
+
+/* Task 9 */
+function small() {
+  document.getElementById("resizeImg").setAttribute("width", "100");
+}
+function large() {
+  document.getElementById("resizeImg").setAttribute("width", "200");
+}
+
+/* Task 10 */
+function toggleTheme() {
+  document.body.classList.toggle("dark");
+}
+
+/* Task 11 */
+setInterval(() => {
+  document.getElementById("clock").innerText = new Date().toLocaleTimeString();
+}, 1000);
+
+/* Task 12 */
+let quotes = [
+  "Discipline beats motivation",
+  "Consistency is power",
+  "Learn. Build. Repeat."
+];
+function newQuote() {
+  let random = Math.floor(Math.random() * quotes.length);
+  document.getElementById("quote").innerText = quotes[random];
+}
+</script>
+
+</body>
+</html>
