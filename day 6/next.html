@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center" id="hd1">This is Registration page</h1>
+    <h2 align="center" id="hd2">This is password</h2>
+
+    <script>
+        let params=new URLSearchParams(window.location.search);
+        
+        let na=params.get("firstname");
+        document.getElementById("hd1").innerHTML=
+        `Welcome! ${na}`;
+
+        let pass=params.get("passw");
+        document.getElementById("hd2").innerHTML=
+        `Password: ${pass}`;
+
+    </script>
+</body>
+</html>

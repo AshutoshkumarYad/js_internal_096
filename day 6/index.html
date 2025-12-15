@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HCL Info Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  
+  <header>
+    <div class="logo">HCL</div>
+    <h1>HCL Technologies</h1>
+  </header>
+
+  
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="#">About HCL</a></li>
+      <li><a href="#">Careers</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  
+  <main class="container">
+
+  
+    <section class="box">
+      <h2>Login</h2>
+      <form action="next.html" method="get" onsubmit="return validateForm()">
+        User Name <input type="text" placeholder="Username" name="firstname" id="er"><br>
+        Password <input type="password" placeholder="Password" name="passw" id="qw"><br>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section class="box">
+      <h2>Notices</h2>
+      <ul class="notice">
+        <li>Internship assessment on Monday</li>
+        <li>Training starts next week</li>
+        <li>Bring ID card daily</li>
+      </ul>
+    </section>
+
+    <section class="box">
+      <h2>Gallery</h2>
+      <img src="https://tse4.mm.bing.net/th/id/OIP.bZ6fCu2s1fsoUSNBxsJouQHaEK?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="img">
+      <img src="https://wallpapercave.com/wp/wp2506793.jpg" alt="img">
+    </section>
+
+  </main>
+
+
+  <footer>
+    © 2025 HCL Technologies
+  </footer>
+
+  <script>
+    function validateForm() {
+    let a = document.getElementById("er").value.trim();
+    let b = document.getElementById("qw").value.trim();
+
+    if (a === "" && b === "") {
+      alert("Username and password not given");
+      return false;
+    }
+    if (a === "") {
+      alert("Username not given");
+      return false;
+    }
+    if (b === "") {
+      alert("Password not given");
+      return false;
+    }
+
+    return true; // allow form submission
+  }
+  </script>
+
+</body>
+</html>
