@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Details</title>
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Registration Details</h1>
+
+  <p><b>Name:</b> <span id="name"></span></p>
+  <p><b>Email:</b> <span id="email"></span></p>
+  <p><b>Gender:</b> <span id="gender"></span></p>
+  <p><b>Course:</b> <span id="course"></span></p>
+
+  <button onclick="history.back()">Go Back</button>
+</div>
+
+<script>
+  const data = JSON.parse(localStorage.getItem("studentData"));
+
+  if (data) {
+    document.getElementById("name").textContent = data.name;
+    document.getElementById("email").textContent = data.email;
+    document.getElementById("gender").textContent = data.gender;
+    document.getElementById("course").textContent = data.course;
+  }
+</script>
+
+</body>
+</html>

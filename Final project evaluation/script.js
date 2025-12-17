@@ -137,3 +137,64 @@ const form = document.getElementById('registrationForm');
                 termsError.classList.remove('show');
             }
         });
+
+        const form1 = document.getElementById("registrationForm");
+        const output1 = document.getElementById("output");
+        const nextPageBtn = document.getElementById("nextPageBtn");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  // inputs
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const course = document.getElementById("course").value;
+  const terms = document.getElementById("terms").checked;
+  const gender = document.querySelector('input[name="gender"]:checked');
+
+  // reset errors
+  document.querySelectorAll(".error").forEach(e => e.style.display = "none");
+
+  let isValid = true;
+
+  if (!name) {
+    document.getElementById("nameError").style.display = "block";
+    isValid = false;
+  }
+
+  if (!email || !email.includes("@")) {
+    document.getElementById("emailError").style.display = "block";
+    isValid = false;
+  }
+
+  if (!gender) {
+    document.getElementById("genderError").style.display = "block";
+    isValid = false;
+  }
+
+  if (!course) {
+    document.getElementById("courseError").style.display = "block";
+    isValid = false;
+  }
+
+  if (!terms) {
+    document.getElementById("termsError").style.display = "block";
+    isValid = false;
+  }
+
+  if (!isValid) return;
+  // store data for next page
+  const studentData = {
+    name,
+    email,
+    gender: gender.value,
+    course
+  };
+
+  localStorage.setItem("studentData", JSON.stringify(studentData));
+});
+
+// redirect button
+nextPageBtn.addEventListener("click", function () {
+  window.location.href = "next1.html";
+});
