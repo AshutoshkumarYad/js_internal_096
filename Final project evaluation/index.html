@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Registration Form</h1>
+        
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter your name">
+                <div class="error" id="nameError">Name is required</div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Enter your email">
+                <div class="error" id="emailError">Please enter a valid email</div>
+            </div>
+
+            <div class="form-group">
+                <label>Gender:</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="male" name="gender" value="Male">
+                        <label for="male" style="margin: 0; font-weight: normal;">Male</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="female" name="gender" value="Female">
+                        <label for="female" style="margin: 0; font-weight: normal;">Female</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="other" name="gender" value="Other">
+                        <label for="other" style="margin: 0; font-weight: normal;">Other</label>
+                    </div>
+                </div>
+                <div class="error" id="genderError">Please select a gender</div>
+            </div>
+
+            <div class="form-group">
+                <label for="course">Course:</label>
+                <select id="course">
+                    <option value="">Select a course</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="C++">C++</option>
+                    <option value="React">React</option>
+                    <option value="Node.js">Node.js</option>
+                </select>
+                <div class="error" id="courseError">Please select a course</div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms">
+                    <label for="terms" style="margin: 0; font-weight: normal;">I accept Terms & Conditions</label>
+                </div>
+                <div class="error" id="termsError">You must accept the terms and conditions</div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+
+        <div class="output" id="output">
+            <div class="success-message">Registration Successful!</div>
+            <div class="output-item"><span class="output-label">Name:</span> <span id="outputName"></span></div>
+            <div class="output-item"><span class="output-label">Email:</span> <span id="outputEmail"></span></div>
+            <div class="output-item"><span class="output-label">Gender:</span> <span id="outputGender"></span></div>
+            <div class="output-item"><span class="output-label">Course:</span> <span id="outputCourse"></span></div>
+        </div>
+    </div>
+
+    <script src="script.js">   
+    </script>
+</body>
+</html>
